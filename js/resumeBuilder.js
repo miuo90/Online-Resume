@@ -1,10 +1,3 @@
-'use strict';
-var formattedName = HTMLheaderName.replace("%data%","Gowoon Lee");
-var formattedRole =HTMLheaderRole.replace("%data%","web-developer");
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-
-
 var bio = {
 	"name":"Gowoon Lee",
 	"role": "innovator",
@@ -23,10 +16,23 @@ var bio = {
 
 
 bio.display = function() {
+'use strict';
+var formattedName = HTMLheaderName.replace("%data%","Gowoon Lee");
+var formattedRole =HTMLheaderRole.replace("%data%","web-developer");
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
 var formattedbioPic = HTMLbioPic.replace("%data%", bio.pictureURL);
 $("#header").append(formattedbioPic);
 var formattedwelcome = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
 $("#header").append(formattedwelcome);
+var formattedmobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
+$("#topContacts,#footerContacts").append(formattedmobile);
+var formattedemail = HTMLemail.replace("%data%", bio.contacts.email);
+$("#topContacts,#footerContacts").append(formattedemail);
+var formattedgithub = HTMLgithub.replace("%data%", bio.contacts.github);
+$("#topContacts,#footerContacts").append(formattedgithub);
+var formattedlocation = HTMLlocation.replace("%data%", bio.contacts.location);
+$("#topContacts,#footerContacts").append(formattedlocation);
 
 if (bio.skills.length > 0) {
 		$("#header").append(HTMLskillsStart);
@@ -40,39 +46,27 @@ if (bio.skills.length > 0) {
 bio.display();
 
 
-var formattedmobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
-$("#topContacts").append(formattedmobile);
-
-var formattedemail = HTMLemail.replace("%data%", bio.contacts.email);
-$("#topContacts").append(formattedemail);
-
-var formattedgithub = HTMLgithub.replace("%data%", bio.contacts.github);
-$("#topContacts").append(formattedgithub);
-
-var formattedlocation = HTMLlocation.replace("%data%", bio.contacts.location);
-$("#topContacts").append(formattedlocation);
-
 
 var work = {
 		"jobs": [
 			{
 			"worktitle":"Information Coordinator",
 			"workemployer":"Federal Government of Canada",
-			"location":"Ottawa, ON, Canada",
+			"location":"107 Sparks Street, Ottawa, ON, Canada",
 			"workdates":"June, 2014 - Present",
 			"workdescription": "Modernize the way public servants communicate and share information; introduce new IM/IT tools such as GCConnex, a web communication platform and GCDOCS, a collaborative information repository."
 				},
 			{
 			"worktitle":"Issues Manager-Business Analyst",
 			"workemployer":"Federal Government of Canada",
-			"location":"Ottawa, ON, Canada",
+			"location":"107 Sparks Street, Ottawa, ON, Canada",
 			"workdates":"November 2013 - May 2014",
 			"workdescription": "Performed a comprehensive market analysis to uncover important trends and priorities for senior management; handled complex corporate requests for a directorate of 40+ people"
 			},
 			{
 			"worktitle":"Communications Analyst",
 			"workemployer":"Federal Government of Canada",
-			"location":"Ottawa, ON, Canada",
+			"location":"115 Queen Street, Ottawa, ON, Canada",
 			"workdates":"January 2011 - August 2013",
 			"workdescription": "Presented accurate and timely media briefings and analyses for the advisers to the Prime Minister's Office; demonstrated an ability to work under pressure and multitask"
 			}
@@ -80,6 +74,7 @@ var work = {
 		};
 
 work.display = function() {
+	'use strict';
 	for (var job in work.jobs) {
 		$("#workExperience").append(HTMLworkStart);
 		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].workemployer);
@@ -106,7 +101,7 @@ var education = {
 	"schools": [
 		{
 			"schoolname":"University of Ottawa",
-			"location":"Ottawa, ON, Canada",
+			"location":"75 Laurier Ave E,Ottawa, ON, Canada",
 			"schooldegree": "Honours Bachelor Degree in Public Administration",
 			"schooldates":2012
 		},
@@ -125,6 +120,7 @@ var education = {
 //encapsulating education
 
 education.display = function () {
+	'use strict';
 	for (var degree in education.schools) {
 		$("#education").append(HTMLschoolStart);
 		var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[degree].schoolname);
@@ -167,6 +163,7 @@ var projects = {
 //encapsulating project
 
 projects.display = function () {
+	'use strict';
 	for (var sample in projects.sample_project) {
 		$("#projects").append(HTMLprojectStart);
 		var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.sample_project[sample].sampletitle);
@@ -185,6 +182,7 @@ projects.display();
 //internationalized button
 
 function inName() {
+	'use strict';
 	name = bio.name;
 	new_name = name.trim().split(" ");
 	console.log(new_name);
@@ -196,18 +194,7 @@ function inName() {
 	return new_name[0] + " " + new_name[1];
 }
 
-//Let's Connect
-var formattedmobile = HTMLmobile.replace("%data%",bio.contacts.mobile);
-$("#footerContacts").append(formattedmobile);
 
-var formattedemail = HTMLemail.replace("%data%", bio.contacts.email);
-$("#footerContacts").append(formattedemail);
-
-var formattedgithub = HTMLgithub.replace("%data%", bio.contacts.github);
-$("#footerContacts").append(formattedgithub);
-
-var formattedlocation = HTMLlocation.replace("%data%", bio.contacts.location);
-$("#footerContacts").append(formattedlocation);
 
 //Google Maps
 

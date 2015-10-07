@@ -175,7 +175,7 @@ map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
-
+      infoWindow.open(map, marker);
     });
 
     // this is where the pin actually gets added to the map.
@@ -185,7 +185,7 @@ map = new google.maps.Map(document.querySelector('#map'), mapOptions);
     map.fitBounds(bounds);
     // center the map
     map.setCenter(bounds.getCenter());
-    map.setZoom(10);
+    map.setZoom(15);
   }
 
   /*
